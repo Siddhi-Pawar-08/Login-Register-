@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Log In — Siddhi</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg-1:#0B0F2B; --bg-2:#3B1E54; --bg-3:#6D28D9;
+    --accent:#22D3EE; --accent-2:#F472B6;
+    --ink:#F5F3FF; --ink-dim:#B8B3D9;
+    --glass:rgba(255,255,255,0.06); --glass-border:rgba(255,255,255,0.14);
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html,body{height:100%;}
+  body{
+    font-family:'Inter', sans-serif; color:var(--ink);
+    min-height:100vh; display:flex; align-items:center; justify-content:center;
+    background:
+      radial-gradient(circle at 15% 20%, rgba(109,40,217,0.55), transparent 40%),
+      radial-gradient(circle at 85% 15%, rgba(34,211,238,0.35), transparent 45%),
+      radial-gradient(circle at 50% 90%, rgba(244,114,182,0.30), transparent 50%),
+      linear-gradient(160deg, var(--bg-1), var(--bg-2) 55%, var(--bg-1));
+    padding:20px;
+  }
+  .card{
+    width:100%; max-width:400px;
+    background:var(--glass);
+    backdrop-filter:blur(22px); -webkit-backdrop-filter:blur(22px);
+    border:1px solid var(--glass-border);
+    border-radius:24px;
+    padding:40px 34px;
+    box-shadow:0 40px 90px -30px rgba(0,0,0,0.6);
+    opacity:0; transform:translateY(20px);
+    animation:rise 0.6s cubic-bezier(.2,.8,.2,1) 0.1s forwards;
+  }
+  @keyframes rise{ to{opacity:1; transform:translateY(0);} }
+  .mark{ display:flex; align-items:center; gap:10px; font-family:'Space Grotesk',sans-serif; font-weight:700; margin-bottom:26px; }
+  .mark-dot{ width:12px; height:12px; border-radius:50%; background:conic-gradient(from 90deg, var(--accent), var(--accent-2), var(--bg-3), var(--accent)); box-shadow:0 0 16px rgba(34,211,238,0.7); }
+  h1{ font-family:'Space Grotesk',sans-serif; font-size:1.6rem; margin-bottom:6px; }
+  .sub{ color:var(--ink-dim); font-size:0.88rem; margin-bottom:26px; }
+  label{ font-size:0.72rem; text-transform:uppercase; letter-spacing:0.08em; color:var(--ink-dim); font-weight:600; display:block; margin-bottom:6px; }
+  input{
+    width:100%; padding:12px 14px; margin-bottom:16px;
+    background:rgba(11,15,43,0.35); border:1px solid var(--glass-border); border-radius:12px;
+    color:var(--ink); font-size:0.92rem; outline:none;
+    transition:border-color 0.25s ease, box-shadow 0.25s ease;
+  }
+  input:focus{ border-color:var(--accent); box-shadow:0 0 0 4px rgba(34,211,238,0.15); }
+  button{
+    width:100%; padding:13px; border:none; border-radius:14px; cursor:pointer;
+    background:linear-gradient(90deg, var(--accent), var(--bg-3) 60%, var(--accent-2));
+    color:#08101F; font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:0.95rem;
+    box-shadow:0 12px 28px -12px rgba(34,211,238,0.55);
+    transition:transform 0.15s ease;
+  }
+  button:hover{ transform:translateY(-1px); }
+  .foot{ text-align:center; margin-top:18px; font-size:0.82rem; color:var(--ink-dim); }
+  .foot a{ color:var(--accent); text-decoration:none; font-weight:600; }
+  .banner{
+    display:flex; align-items:center; gap:8px;
+    background:rgba(52,211,153,0.12); border:1px solid rgba(52,211,153,0.35);
+    color:#34D399; font-size:0.82rem; padding:10px 12px; border-radius:10px; margin-bottom:20px;
+  }
+</style>
+</head>
+<body>
+  <div class="card">
+    <div class="mark"><span class="mark-dot"></span> SIDDHI</div>
+    <div class="banner">✅ Account created — please log in</div>
+    <h1>Welcome back</h1>
+    <p class="sub">Log in to continue to your account.</p>
+    <form onsubmit="event.preventDefault(); alert('This is a demo login page.');">
+      <label for="u">Username or Email</label>
+      <input type="text" id="u" placeholder="you@example.com">
+      <label for="p">Password</label>
+      <input type="password" id="p" placeholder="Your password">
+      <button type="submit">Log In</button>
+    </form>
+    <p class="foot">New here? <a href="register.html">Create an account</a></p>
+  </div>
+</body>
+</html>
